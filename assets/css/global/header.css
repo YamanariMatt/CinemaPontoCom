@@ -60,13 +60,13 @@ header div {
 /* Personal */
 
 .personalPerfil img {
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
 }
 
 .personalPerfil p {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .icone {

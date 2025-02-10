@@ -9,8 +9,7 @@ html,
 body {
   height: 100%;
   font-family: 'Roboto', sans-serif;
-}
-body {
+  background-color: #010916;
   line-height: 1.6;
 }
 ul,
@@ -39,9 +38,4 @@ input,
 textarea {
   font-family: inherit;
   font-size: inherit;
-}
-
-
-body{
-  background-color: #010916;
 }

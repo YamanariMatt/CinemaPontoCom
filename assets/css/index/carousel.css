@@ -1,10 +1,11 @@
 .destaques {
   color: white;
   text-align: center;
+  padding: 20px;
 }
 
 .carousel {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   padding: 20px 0;
 }
@@ -12,6 +13,48 @@
 .carousel img {
   width: 100%;
   height: auto;
+  border-radius: 20px;
+}
+
+.filme {
+  margin: 25px;
+  position: relative;
+}
+
+.filme .blur-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-size: cover;
+  background-position: center;
+  filter: blur(15px);
+  z-index: -1;
+}
+
+.filme img {
+  position: relative;
+  z-index: 1;
+}
+.filme-info {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 2;
+  text-align:left ;
+}
+
+.filme-info h3 {
+  font-size: 1.2em;
+}
+
+.filme-info p {
+  margin: 5px 0;
+  font-size: 0.9em;
 }

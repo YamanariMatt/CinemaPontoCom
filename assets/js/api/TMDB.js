@@ -13,9 +13,8 @@ fetch(apiUrl)
     data.results.forEach((movie) => {
       const imageUrl = `https://image.tmdb.org/t/p/w780${movie.backdrop_path}`;
       
-      // Buscar detalhes do filme
       getMovieDetails(movie.id).then((details) => {
-        const genres = details.genres.map((genre) => genre.name).join(", ");
+        const genres = details.genres.map((genre) => genre.name).join(" | ");
         const duration = details.runtime;
         const rating = details.vote_average;
 
@@ -25,9 +24,9 @@ fetch(apiUrl)
             <div class="blur-background" style="background-image: url('${imageUrl}');"></div>
             <img src="${imageUrl}" alt="${movie.title}">
             <div class="filme-info">
+              <h2>Destaques</h2>
               <h3>${movie.title}</h3>
-              <p>${genres}</p>
-              <p>${duration} min</p>
+              <p>${genres} - ${duration} min</p>
               <p> ${rating}</p>
             </div>
           </div>`

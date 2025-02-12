@@ -9,3 +9,13 @@ $(document).ready(function(){
       autoplaySpeed: 2000,
     });
   });
+
+  
+$(document).ready(function() {
+  $('.launches-container').slick({
+    infinite: true,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    autoplay: false,
+  });
+});

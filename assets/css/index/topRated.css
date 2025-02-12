@@ -1,0 +1,30 @@
+.top-rated h2 {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: white;
+    text-align: left;
+    padding-left: 7rem;
+  }
+  
+  .top-rated .top-rated-container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  
+  .top-rated .top-rated-container img {
+    border-radius: 10px;
+  }
+  
+  .top-rated-movies p {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    padding: 10px 0px 0px 0px;
+  }
+  
+  .top-rated-movies {
+    padding: 0px 10px;
+  }

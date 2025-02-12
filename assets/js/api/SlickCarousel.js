@@ -13,9 +13,18 @@ $(document).ready(function(){
   
 $(document).ready(function() {
   $('.launches-container').slick({
-    infinite: true,
+    infinite: false,
     slidesToShow: 6,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
+    autoplay: false,
+  });
+});
+
+$(document).ready(function() {
+  $('.top-rated-container').slick({
+    infinite: false,
+    slidesToShow: 6,
+    slidesToScroll: 2,
     autoplay: false,
   });
 });

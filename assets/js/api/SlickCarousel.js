@@ -13,7 +13,7 @@ $(document).ready(function(){
   
 $(document).ready(function() {
   $('.launches-container').slick({
-    infinite: false,
+    infinite: true,
     slidesToShow: 6,
     slidesToScroll: 2,
     autoplay: false,
@@ -22,7 +22,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   $('.top-rated-container').slick({
-    infinite: false,
+    infinite: true,
     slidesToShow: 6,
     slidesToScroll: 2,
     autoplay: false,

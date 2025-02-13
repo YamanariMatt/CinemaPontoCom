@@ -13,7 +13,18 @@
   }
   
   .launches-container,
-  .top-rated-container {
+  .top-rated-container,
+  .trending-container,
+   .action-container,
+   .comedy-container,
+   .drama-container,
+   .classic-container,
+   .animation-container,
+    .horror-container,
+    .scifi-container,
+    .romance-container,
+    .documentary-container
+   {
     width: 95%;
     margin: 0 auto;
     padding: 20px 0;

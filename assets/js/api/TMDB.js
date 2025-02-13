@@ -1,6 +1,6 @@
 const apiKey = "30fa6e17dff8fe90ffee79a3fcaf0175";
 const apiUrlPopular = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR&page=1`;
-const apiUrlLaunches = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=pt-BR&page=1`;
+const apiUrlLaunches = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=pt-BR&page=`;
 const apiUrlTopRated = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=pt-BR&page=1`;
 
 const addedMovieIds = new Set(); // Conjunto para rastrear os filmes já adicionados
@@ -13,7 +13,7 @@ function getMovieDetails(movieId) {
 function addMovieToMainCarousel(carousel, movie, details, imageUrl) {
   const genres = details.genres.map((genre) => genre.name).join(" | ");
   const duration = details.runtime;
-  const rating = details.vote_average;
+  const rating = details.vote_average.toFixed(1); 
 
   carousel.slick(
     "slickAdd",
@@ -24,7 +24,7 @@ function addMovieToMainCarousel(carousel, movie, details, imageUrl) {
         <h2>${movie.title}</h2>
         <h3>${movie.title}</h3>
         <p>${genres} - ${duration} min</p>
-        <p> ${rating}</p>
+        <p> ${rating}/10</p>
       </div>
     </div>`
   );
@@ -32,17 +32,34 @@ function addMovieToMainCarousel(carousel, movie, details, imageUrl) {
 
 function addMovieToSecondaryCarousel(carousel, movie, details, imageUrl) {
   const duration = details.runtime;
-  const rating = details.vote_average;
-
+  const rating = details.vote_average.toFixed(1); 
   carousel.slick(
     "slickAdd",
     `<div class="subfilmes">
       <img src="${imageUrl}" alt="${movie.title}">
-        <h3>${movie.title}</h3>
-        <p>${duration} min</p>
-        <p>${rating}</p>
-    </div>`
+       <h3>${movie.title}</h3>
+        <p>${duration} min | ${rating}/10</p>
+     </div>`
   );
+}
+
+function fetchMovies(url, carousel, addMovieFunction, pages = 1) {
+  for (let page = 1; page <= pages; page++) {
+    fetch(`${url}${page}`)
+      .then((response) => response.json())
+      .then((data) => {
+        data.results.forEach((movie) => {
+          if (!addedMovieIds.has(movie.id)) {
+            addedMovieIds.add(movie.id);
+            const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+
+            getMovieDetails(movie.id).then((details) => {
+              addMovieFunction(carousel, movie, details, imageUrl);
+            });
+          }
+        });
+      });
+  }
 }
 
 fetch(apiUrlPopular)
@@ -53,7 +70,7 @@ fetch(apiUrlPopular)
       if (!addedMovieIds.has(movie.id)) {
         addedMovieIds.add(movie.id);
         const imageUrl = `https://image.tmdb.org/t/p/w780${movie.backdrop_path}`;
-        
+
         getMovieDetails(movie.id).then((details) => {
           addMovieToMainCarousel(carousel, movie, details, imageUrl);
         });
@@ -61,21 +78,9 @@ fetch(apiUrlPopular)
     });
   });
 
-fetch(apiUrlLaunches)
-  .then((response) => response.json())
-  .then((data) => {
-    const carousel = $(".launches-container");
-    data.results.forEach((movie) => {
-      if (!addedMovieIds.has(movie.id)) {
-        addedMovieIds.add(movie.id);
-        const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-        
-        getMovieDetails(movie.id).then((details) => {
-          addMovieToSecondaryCarousel(carousel, movie, details, imageUrl);
-        });
-      }
-    });
-  });
+// Fetch multiple pages for launches
+const launchesCarousel = $(".launches-container");
+fetchMovies(apiUrlLaunches, launchesCarousel, addMovieToSecondaryCarousel, 3); // Adjust the number of pages as needed
 
 fetch(apiUrlTopRated)
   .then((response) => response.json())
@@ -85,7 +90,7 @@ fetch(apiUrlTopRated)
       if (!addedMovieIds.has(movie.id)) {
         addedMovieIds.add(movie.id);
         const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-        
+
         getMovieDetails(movie.id).then((details) => {
           addMovieToSecondaryCarousel(carousel, movie, details, imageUrl);
         });

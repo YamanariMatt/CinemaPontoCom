@@ -55,7 +55,14 @@ function addMovieToSecondaryCarousel(carousel, movie, details, imageUrl) {
   );
 }
 
-function fetchMovies(url, carousel, addMovieFunction, pages = 1) {
+function fetchMovies(
+  url,
+  carouselSelector,
+  addMovieFunction,
+  useBackdrop = false,
+  pages = 1
+) {
+  const carousel = $(carouselSelector);
   for (let page = 1; page <= pages; page++) {
     fetch(`${url}${page}`)
       .then((response) => response.json())
@@ -63,7 +70,10 @@ function fetchMovies(url, carousel, addMovieFunction, pages = 1) {
         data.results.forEach((movie) => {
           if (!addedMovieIds.has(movie.id)) {
             addedMovieIds.add(movie.id);
-            const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+            const imageUrl =
+              useBackdrop && movie.backdrop_path
+                ? `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
+                : `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
             getMovieDetails(movie.id).then((details) => {
               addMovieFunction(carousel, movie, details, imageUrl);
@@ -74,214 +84,18 @@ function fetchMovies(url, carousel, addMovieFunction, pages = 1) {
   }
 }
 
-fetch(apiUrlPopular)
-  .then((response) => response.json())
-  .then((data) => {
-    const carousel = $(".carousel");
-    data.results.forEach((movie) => {
-      if (!addedMovieIds.has(movie.id)) {
-        addedMovieIds.add(movie.id);
-        const imageUrl = `https://image.tmdb.org/t/p/w780${movie.backdrop_path}`;
-
-        getMovieDetails(movie.id).then((details) => {
-          addMovieToMainCarousel(carousel, movie, details, imageUrl);
-        });
-      }
-    });
-  });
-
-// Fetch multiple pages for launches
-const launchesCarousel = $(".launches-container");
-fetchMovies(apiUrlLaunches, launchesCarousel, addMovieToSecondaryCarousel, 3); // Ajuste o número de páginas conforme necessário
-
-fetch(apiUrlTopRated)
-  .then((response) => response.json())
-  .then((data) => {
-    const carousel = $(".top-rated-container");
-    data.results.forEach((movie) => {
-      if (!addedMovieIds.has(movie.id)) {
-        addedMovieIds.add(movie.id);
-        const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-
-        getMovieDetails(movie.id).then((details) => {
-          addMovieToSecondaryCarousel(carousel, movie, details, imageUrl);
-        });
-      }
-    });
-  });
-
-fetch(apiUrlTrending)
-  .then((response) => response.json())
-  .then((data) => {
-    const carousel = $(".trending-container");
-    data.results.forEach((movie) => {
-      if (!addedMovieIds.has(movie.id)) {
-        addedMovieIds.add(movie.id);
-        const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-
-        getMovieDetails(movie.id).then((details) => {
-          addMovieToSecondaryCarousel(carousel, movie, details, imageUrl);
-        });
-      }
-    });
-  });
-
-fetch(apiUrlUpcoming)
-  .then((response) => response.json())
-  .then((data) => {
-    const carousel = $(".upcoming-container");
-    data.results.forEach((movie) => {
-      if (!addedMovieIds.has(movie.id)) {
-        addedMovieIds.add(movie.id);
-        const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-
-        getMovieDetails(movie.id).then((details) => {
-          addMovieToSecondaryCarousel(carousel, movie, details, imageUrl);
-        });
-      }
-    });
-  });
-
-fetch(apiUrlAction)
-  .then((response) => response.json())
-  .then((data) => {
-    const carousel = $(".action-container");
-    data.results.forEach((movie) => {
-      if (!addedMovieIds.has(movie.id)) {
-        addedMovieIds.add(movie.id);
-        const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-
-        getMovieDetails(movie.id).then((details) => {
-          addMovieToSecondaryCarousel(carousel, movie, details, imageUrl);
-        });
-      }
-    });
-  });
-
-fetch(apiUrlComedy)
-  .then((response) => response.json())
-  .then((data) => {
-    const carousel = $(".comedy-container");
-    data.results.forEach((movie) => {
-      if (!addedMovieIds.has(movie.id)) {
-        addedMovieIds.add(movie.id);
-        const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-
-        getMovieDetails(movie.id).then((details) => {
-          addMovieToSecondaryCarousel(carousel, movie, details, imageUrl);
-        });
-      }
-    });
-  });
-
-fetch(apiUrlDrama)
-  .then((response) => response.json())
-  .then((data) => {
-    const carousel = $(".drama-container");
-    data.results.forEach((movie) => {
-      if (!addedMovieIds.has(movie.id)) {
-        addedMovieIds.add(movie.id);
-        const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-
-        getMovieDetails(movie.id).then((details) => {
-          addMovieToSecondaryCarousel(carousel, movie, details, imageUrl);
-        });
-      }
-    });
-  });
-
-fetch(apiUrlClassic)
-  .then((response) => response.json())
-  .then((data) => {
-    const carousel = $(".classic-container");
-    data.results.forEach((movie) => {
-      if (!addedMovieIds.has(movie.id)) {
-        addedMovieIds.add(movie.id);
-        const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-
-        getMovieDetails(movie.id).then((details) => {
-          addMovieToSecondaryCarousel(carousel, movie, details, imageUrl);
-        });
-      }
-    });
-  });
-
-fetch(apiUrlAnimation)
-  .then((response) => response.json())
-  .then((data) => {
-    const carousel = $(".animation-container");
-    data.results.forEach((movie) => {
-      if (!addedMovieIds.has(movie.id)) {
-        addedMovieIds.add(movie.id);
-        const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-
-        getMovieDetails(movie.id).then((details) => {
-          addMovieToSecondaryCarousel(carousel, movie, details, imageUrl);
-        });
-      }
-    });
-  });
-
-fetch(apiUrlHorror)
-  .then((response) => response.json())
-  .then((data) => {
-    const carousel = $(".horror-container");
-    data.results.forEach((movie) => {
-      if (!addedMovieIds.has(movie.id)) {
-        addedMovieIds.add(movie.id);
-        const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-
-        getMovieDetails(movie.id).then((details) => {
-          addMovieToSecondaryCarousel(carousel, movie, details, imageUrl);
-        });
-      }
-    });
-  });
-
-fetch(apiUrlSciFi)
-  .then((response) => response.json())
-  .then((data) => {
-    const carousel = $(".scifi-container");
-    data.results.forEach((movie) => {
-      if (!addedMovieIds.has(movie.id)) {
-        addedMovieIds.add(movie.id);
-        const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-
-        getMovieDetails(movie.id).then((details) => {
-          addMovieToSecondaryCarousel(carousel, movie, details, imageUrl);
-        });
-      }
-    });
-  });
-
-fetch(apiUrlRomance)
-  .then((response) => response.json())
-  .then((data) => {
-    const carousel = $(".romance-container");
-    data.results.forEach((movie) => {
-      if (!addedMovieIds.has(movie.id)) {
-        addedMovieIds.add(movie.id);
-        const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-
-        getMovieDetails(movie.id).then((details) => {
-          addMovieToSecondaryCarousel(carousel, movie, details, imageUrl);
-        });
-      }
-    });
-  });
-
-fetch(apiUrlDocumentary)
-  .then((response) => response.json())
-  .then((data) => {
-    const carousel = $(".documentary-container");
-    data.results.forEach((movie) => {
-      if (!addedMovieIds.has(movie.id)) {
-        addedMovieIds.add(movie.id);
-        const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-
-        getMovieDetails(movie.id).then((details) => {
-          addMovieToSecondaryCarousel(carousel, movie, details, imageUrl);
-        });
-      }
-    });
-  });
+// Exemplo de chamadas para diferentes categorias
+fetchMovies(apiUrlPopular, ".carousel", addMovieToMainCarousel, true); // Usar backdrop_path para o carousel principal
+fetchMovies(apiUrlLaunches,".launches-container",addMovieToSecondaryCarousel,false,3); // Usar poster_path para carousels secundários
+fetchMovies(apiUrlTopRated,".top-rated-container",addMovieToSecondaryCarousel);
+fetchMovies(apiUrlTrending, ".trending-container", addMovieToSecondaryCarousel);
+fetchMovies(apiUrlUpcoming, ".upcoming-container", addMovieToSecondaryCarousel);
+fetchMovies(apiUrlAction, ".action-container", addMovieToSecondaryCarousel);
+fetchMovies(apiUrlComedy, ".comedy-container", addMovieToSecondaryCarousel);
+fetchMovies(apiUrlDrama, ".drama-container", addMovieToSecondaryCarousel);
+fetchMovies(apiUrlClassic, ".classic-container", addMovieToSecondaryCarousel);
+fetchMovies(apiUrlAnimation,".animation-container",addMovieToSecondaryCarousel);
+fetchMovies(apiUrlHorror, ".horror-container", addMovieToSecondaryCarousel);
+fetchMovies(apiUrlSciFi, ".scifi-container", addMovieToSecondaryCarousel);
+fetchMovies(apiUrlRomance, ".romance-container", addMovieToSecondaryCarousel);
+fetchMovies(apiUrlDocumentary,".documentary-container",addMovieToSecondaryCarousel);

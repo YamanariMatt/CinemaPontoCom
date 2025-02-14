@@ -14,7 +14,7 @@ const apiUrlSciFi = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKe
 const apiUrlRomance = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=10749&language=pt-BR&page=1`;
 const apiUrlDocumentary = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=99&language=pt-BR&page=1`;
 
-const addedMovieIds = new Set(); // Conjunto para rastrear os filmes já adicionados
+const addedMovieIds = new Set();
 
 function getMovieDetails(movieId) {
   const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=pt-BR`;
@@ -84,9 +84,9 @@ function fetchMovies(
   }
 }
 
-// Exemplo de chamadas para diferentes categorias
-fetchMovies(apiUrlPopular, ".carousel", addMovieToMainCarousel, true); // Usar backdrop_path para o carousel principal
-fetchMovies(apiUrlLaunches,".launches-container",addMovieToSecondaryCarousel,false,3); // Usar poster_path para carousels secundários
+
+fetchMovies(apiUrlPopular, ".carousel", addMovieToMainCarousel, true);
+fetchMovies(apiUrlLaunches,".launches-container",addMovieToSecondaryCarousel,false,3); 
 fetchMovies(apiUrlTopRated,".top-rated-container",addMovieToSecondaryCarousel);
 fetchMovies(apiUrlTrending, ".trending-container", addMovieToSecondaryCarousel);
 fetchMovies(apiUrlUpcoming, ".upcoming-container", addMovieToSecondaryCarousel);

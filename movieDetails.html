@@ -1,12 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${movie.title}</title>
-    <link rel="stylesheet" href="assets/css/global/styles.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Filmes.Com</title>
+        <link rel="icon" type="image/png" href="assets/img/icone.png" />
+        <link rel="stylesheet" href="assets/css/global/styles.css" />
+        <link rel="stylesheet" href="assets/css/index/index.css">
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+        />
+        
+    </head>
+    <body>
+        <header>
+          <div class="logo">
+            <i class="icone" data-lucide="clapperboard"></i>
+            <p class="nameLogo">CinemaPontoCom</p>
+          </div>
     
-</body>
-</html>
+          <div class="search-container">
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Encontre seus filmes favoritos"
+            />
+            <i data-lucide="search" class="search-icon"></i>
+          </div>
+    
+          <div class="personal">
+            <i class="icone" data-lucide="plus"></i>
+            <i class="icone" data-lucide="bell"></i>
+            <div class="personalPerfil" id="user-container">
+              <!-- API RANDOM USER -->
+            </div>
+            <i class="icone" data-lucide="chevron-down"></i>
+          </div>
+        </header>
+    
+    <section>
+    
+
+    </section>
+
+
+
+
+    <body>
+    <footer>
+        <div class="footer-content">
+          <div class="footer-logo">
+            <i class="icone" data-lucide="clapperboard"></i>
+            <p class="nameLogo">CinemaPontoCom</p>
+          </div>
+          <div class="footer-links">
+            <a href="#">Sobre Nós</a>
+            <a href="#">Contato</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Política de Privacidade</a>
+          </div>
+          <div class="footer-social">
+            <a href="#"><i data-lucide="facebook"></i></a>
+            <a href="#"><i data-lucide="twitter"></i></a>
+            <a href="#"><i data-lucide="instagram"></i></a>
+            <a href="#"><i data-lucide="youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 CinemaPontoCom. Todos os direitos reservados.</p>
+        </div>
+      </footer>
+  
+      <script src="https://unpkg.com/lucide@latest"></script>
+      <script>
+        lucide.createIcons();
+      </script>
+      <script src="assets/js/api/RandomUser.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+      <script src="assets/js/api/SlickCarousel.js"></script>
+      <script src="assets/js/api/TMDB.js"></script>
+      <script src="assets/js/pages/index.js"></script>
+    </body>
+  </html>

@@ -36,6 +36,7 @@ function addMovieToMainCarousel(carousel, movie, details, imageUrl) {
         <h3>${movie.title}</h3>
         <p>${genres} - ${duration} min</p>
         <p> ${rating}/10</p>
+        <button onclick="movieOnClick(${movie.id})">Ver trailer</button>
       </div>
     </div>`
   );
@@ -48,9 +49,11 @@ function addMovieToSecondaryCarousel(carousel, movie, details, imageUrl) {
   carousel.slick(
     "slickAdd",
     `<div class="subfilmes">
+      <a onclick="movieOnClick(${movie.id})">
       <img src="${imageUrl}" alt="${movie.title}">
       <h3>${movie.title}</h3>
       <p>${duration} min | ${rating}/10</p>
+      </a>
     </div>`
   );
 }
@@ -83,19 +86,3 @@ function fetchMovies(
       });
   }
 }
-
-
-fetchMovies(apiUrlPopular, ".carousel", addMovieToMainCarousel, true);
-fetchMovies(apiUrlLaunches,".launches-container",addMovieToSecondaryCarousel,false,3); 
-fetchMovies(apiUrlTopRated,".top-rated-container",addMovieToSecondaryCarousel);
-fetchMovies(apiUrlTrending, ".trending-container", addMovieToSecondaryCarousel);
-fetchMovies(apiUrlUpcoming, ".upcoming-container", addMovieToSecondaryCarousel);
-fetchMovies(apiUrlAction, ".action-container", addMovieToSecondaryCarousel);
-fetchMovies(apiUrlComedy, ".comedy-container", addMovieToSecondaryCarousel);
-fetchMovies(apiUrlDrama, ".drama-container", addMovieToSecondaryCarousel);
-fetchMovies(apiUrlClassic, ".classic-container", addMovieToSecondaryCarousel);
-fetchMovies(apiUrlAnimation,".animation-container",addMovieToSecondaryCarousel);
-fetchMovies(apiUrlHorror, ".horror-container", addMovieToSecondaryCarousel);
-fetchMovies(apiUrlSciFi, ".scifi-container", addMovieToSecondaryCarousel);
-fetchMovies(apiUrlRomance, ".romance-container", addMovieToSecondaryCarousel);
-fetchMovies(apiUrlDocumentary,".documentary-container",addMovieToSecondaryCarousel);

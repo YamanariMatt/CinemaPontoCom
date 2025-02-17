@@ -64,3 +64,13 @@
   font-size: 24px;
   width: 65%;
 } 
+
+.filme-info button {
+  font-family: 'Roboto', sans-serif;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 5px 0px;
+  border-radius: 10px;
+  font-size: 16px;
+}

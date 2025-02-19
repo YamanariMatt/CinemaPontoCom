@@ -2,16 +2,35 @@
     display: flex;
     color: white;
     padding: 20px;
+    margin: 20px;
+    background-color:#161f30;
+    border-radius: 20px;
 }
-
-.movie-details h1{
-    font-size: 40px;
-    margin-bottom: 20px;
-}
-
 
 .movie-details img{
-    border-radius: 20px;
+    border-radius: 15px;
     margin-right: 20px;
+    height: 500px;
+    width: 400px;
 }
 
+.movie-title{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.movie-title h4::after {
+    content: "•";
+    margin-left: 10px;
+    color: white;
+}
+
+.movie-title h4:last-child::after {
+    content: "";
+}
+
+.movie-gap{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

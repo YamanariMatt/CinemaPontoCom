@@ -75,7 +75,7 @@ function fetchMovies(
             addedMovieIds.add(movie.id);
             const imageUrl =
               useBackdrop && movie.backdrop_path
-                ? `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
+                ? `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`
                 : `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
             getMovieDetails(movie.id).then((details) => {

@@ -64,6 +64,14 @@ $(document).ready(function () {
         `;
         castContainer.append(castElement);
       });
+
+      // Inicialize o carrossel de elenco
+      $('.cast-carousel').slick({
+        infinite: false,
+        slidesToShow: 7,
+        slidesToScroll: 1,
+        autoplay: false,
+      });
     })
     .catch((error) => {
       console.error("Erro ao buscar detalhes do filme:", error);

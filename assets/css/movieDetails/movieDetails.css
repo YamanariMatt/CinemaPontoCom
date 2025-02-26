@@ -88,11 +88,11 @@
 .cast-member {
   display: flex;
   flex-direction: column;
-  
-  width: 120px;
-  background-color: #010916;
+  width: 160px;
+  background-color: #161f30;
   border-radius: 10px;
   padding: 10px;
+  margin: 5px;
 }
 
 .cast-member img {
@@ -105,4 +105,23 @@
   text-align: center;
   margin-top: 10px;
   color: white;
+}
+
+.cast-carousel {
+width: 90%;
+margin: 0 auto;
+padding: 20px 0;
+justify-content: center;
+}
+
+.elenco{
+  color: white;
+  display: flex;
+  align-items: center;
+  margin: 0px 90px;
+}
+
+.elenco .icone{
+  height: 55px;
+  width: 55px;
 }

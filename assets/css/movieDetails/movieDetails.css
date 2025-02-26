@@ -40,6 +40,21 @@
   justify-content: center;
 }
 
+.rating-align {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin: 10px;
+}
+
+.rating-align .icone{
+  height: 50px;
+  width: 50px;
+  background-color: #010916;
+  padding: 13px;
+  border-radius: 25px;
+}
+
 .rating-circle-bg {
   fill: none;
   stroke: #ddd;
@@ -61,4 +76,33 @@
   fill: #fff;
   text-anchor: middle;
   dominant-baseline: middle;
+}
+
+.cast-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.cast-member {
+  display: flex;
+  flex-direction: column;
+  
+  width: 120px;
+  background-color: #010916;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.cast-member img {
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+}
+
+.cast-member p {
+  text-align: center;
+  margin-top: 10px;
+  color: white;
 }

@@ -6,6 +6,11 @@ function getMovieDetails(movieId) {
   return fetch(movieDetailsUrl).then((response) => response.json());
 }
 
+function getMovieCast(movieId) {
+  const movieCastUrl = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}&language=pt-BR`;
+  return fetch(movieCastUrl).then((response) => response.json());
+}
+
 function updateRatingCircle(rating) {
   const circle = document.querySelector(".rating-circle");
   const radius = circle.r.baseVal.value;
@@ -44,6 +49,21 @@ $(document).ready(function () {
       $("#movie-overview").text(details.overview);
       $("#movie-release-date").text(details.release_date);
       updateRatingCircle(details.vote_average);
+
+      return getMovieCast(movieId);
+    })
+    .then((castData) => {
+      const castContainer = $("#movie-cast");
+      castData.cast.slice(0, 10).forEach((castMember) => {
+        const castElement = `
+          <div class="cast-member">
+            <img src="https://image.tmdb.org/t/p/w200${castMember.profile_path}" alt="${castMember.name}">
+            <p>${castMember.name}</p>
+            <p>${castMember.character}</p>
+          </div>
+        `;
+        castContainer.append(castElement);
+      });
     })
     .catch((error) => {
       console.error("Erro ao buscar detalhes do filme:", error);

@@ -65,7 +65,28 @@ $(document).ready(function () {
         castContainer.append(castElement);
       });
 
-      // Inicialize o carrossel de elenco
+      const director = castData.crew.find((member) => member.job === "Director");
+      if (director) {
+        $("#director-name").text(director.name);
+      
+        fetch(`https://api.themoviedb.org/3/person/${director.id}?api_key=${apiKey}&language=pt-BR`)
+          .then(response => response.json())
+          .then(directorDetails => {
+            $("#director-photo").attr("src", `https://image.tmdb.org/t/p/w200${directorDetails.profile_path}`);
+            $("#director-bio").text(directorDetails.biography);
+
+            fetch(`https://api.themoviedb.org/3/person/${director.id}/movie_credits?api_key=${apiKey}&language=pt-BR`)
+              .then(response => response.json())
+              .then(movieCredits => {
+                const directorMovies = movieCredits.crew.filter(movie => movie.job === "Director").slice(0, 5);
+                directorMovies.forEach(movie => {
+                  $("#director-movies").append(`<li>${movie.title} (${new Date(movie.release_date).getFullYear()})</li>`);
+                });
+              });
+          });
+      }
+
+
       $('.cast-carousel').slick({
         infinite: false,
         slidesToShow: 7,

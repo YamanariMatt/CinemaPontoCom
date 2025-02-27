@@ -52,40 +52,48 @@
         </header>
     
     <section class="movie-details">
-
-        <img id="movie-poster" src="" alt="Poster do filme" />
-
-        <div class="movie-gap">
-
-          <div class="movie-title">
-            <h2 id="movie-title"></h2>
-            <h3 id="movie-release-year"></h3> 
+      
+      
+        
+        <div class="movie-availability">
+          <img id="movie-poster" src="" alt="Poster do filme" />
+          <h3>Disponível em:</h3>
+          <div id="movie-platforms">
           </div>
+        </div>
+      
 
-          <div class="movie-title"> 
+      <div class="movie-gap">
+
+        <div class="movie-title">
+          <h2 id="movie-title"></h2>
+          <h3 id="movie-release-year"></h3> 
+        </div>
+
+        <div class="movie-title"> 
           <h4 id="movie-genres"></h4>
           <h4 id="movie-duration"></h4>
           <h4 id="movie-release-date"></h4>
+        </div>
+
+        <div class="rating-container">
+          <h3> Avaliação (TMDB) </h3>
+          <div class="rating-align">
+            <svg width="50" height="50">
+              <circle class="rating-circle-bg" cx="25" cy="25" r="20"></circle>
+              <circle class="rating-circle" cx="25" cy="25" r="20"></circle>
+              <text class="rating-text" x="25" y="27" text-anchor="middle" font-size="12" fill="#fff"></text>
+            </svg>
+            <i class="icone" data-lucide="star"></i>
+            <i class="icone" data-lucide="heart"></i>
+            <i class="icone" data-lucide="list"></i>
           </div>
+        </div>
 
-          <div class="rating-container">
-            <h3> Avaliação (TMDB) </h3>
-              <div class="rating-align">
-              <svg width="50" height="50">
-                <circle class="rating-circle-bg" cx="25" cy="25" r="20"></circle>
-                <circle class="rating-circle" cx="25" cy="25" r="20"></circle>
-                <text class="rating-text" x="25" y="27" text-anchor="middle" font-size="12" fill="#fff"></text>
-              </svg>
-              <i class="icone" data-lucide="star"></i>
-              <i class="icone" data-lucide="heart"></i>
-              <i class="icone" data-lucide="list"></i>
-            </div>
-          </div>
+        <h3> Sinopse</h3>
+        <p id="movie-overview"></p>
 
-          <h3> Sinopse</h3>
-          <p id="movie-overview"></p>
-
-          <div class="movie-director">
+        <div class="movie-director">
             <h3>Diretor:</h3>
             <div id="director-info">
               <img id="director-photo" src="" alt="Foto do Diretor">
@@ -97,8 +105,8 @@
               </div>
             </div>
           </div>
-
-          
+        </div>
+       
 
     </section>
 

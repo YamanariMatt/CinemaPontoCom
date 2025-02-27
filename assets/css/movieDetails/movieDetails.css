@@ -1,5 +1,6 @@
 .movie-details {
-  display: flex;
+  display: grid;
+  grid-template-columns: 30% 70%;
   color: white;
   padding: 20px;
   margin: 20px;
@@ -10,8 +11,31 @@
 .movie-details img {
   border-radius: 15px;
   margin-right: 20px;
-  height: 500px;
+  height: 550px;
   width: 400px;
+}
+
+.movie-availability {
+  margin-top: 20px;
+  color: white;
+  text-align: center;
+}
+
+#movie-platforms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.movie-availability h3 {
+  margin: 10px 0px;
+}
+
+.platform-logo {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 5px;
 }
 
 .movie-title {

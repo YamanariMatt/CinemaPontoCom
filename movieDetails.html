@@ -1,70 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Detalhes do Filme</title>
-        <link rel="icon" type="image/png" href="assets/img/icone.png" />
-        <link rel="stylesheet" href="assets/css/global/styles.css" />
-        <link rel="stylesheet" href="assets/css/movieDetails/movieDetails.css">
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-          rel="stylesheet"
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalhes do Filme</title>
+    <link rel="icon" type="image/png" href="assets/img/icone.png" />
+    <link rel="stylesheet" href="assets/css/global/styles.css" />
+    <link rel="stylesheet" href="assets/css/movieDetails/movieDetails.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html"><i class="icone" data-lucide="clapperboard"></i></a>
+        <a href="index.html"><p class="nameLogo">CinemaPontoCom</p></a>
+      </div>
+
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Encontre seus filmes favoritos"
         />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
-        />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
-        />
-        
-    </head>
-    <body>
-        <header>
-          
-          <div class="logo">
-            <a href="index.html"><i class="icone" data-lucide="clapperboard"></i></a>
-            <a href="index.html"><p class="nameLogo">CinemaPontoCom</p></a>
-          </div>
-          
-    
-          <div class="search-container">
-            <input
-              type="text"
-              class="search-input"
-              placeholder="Encontre seus filmes favoritos"
-            />
-            <i data-lucide="search" class="search-icon"></i>
-          </div>
-    
-          <div class="personal">
-            <i class="icone" data-lucide="plus"></i>
-            <i class="icone" data-lucide="bell"></i>
-            <div class="personalPerfil" id="user-container">
-              <!-- API RANDOM USER -->
-            </div>
-            <i class="icone" data-lucide="chevron-down"></i>
-          </div>
-        </header>
-    
-    <section class="movie-details">
-      
-      
-        
-        <div class="movie-availability">
-          <img id="movie-poster" src="" alt="Poster do filme" />
-          <h3>Disponível em:</h3>
-          <div id="movie-platforms">
-          </div>
+        <i data-lucide="search" class="search-icon"></i>
+      </div>
+
+      <div class="personal">
+        <i class="icone" data-lucide="plus"></i>
+        <i class="icone" data-lucide="bell"></i>
+        <div class="personalPerfil" id="user-container">
+          <!-- API RANDOM USER -->
         </div>
-      
+        <i class="icone" data-lucide="chevron-down"></i>
+      </div>
+    </header>
+
+    <section class="movie-details">
+      <div class="movie-availability">
+        <img id="movie-poster" src="" alt="Poster do filme" />
+        <h3>Disponível em:</h3>
+        <div id="movie-platforms"></div>
+      </div>
 
       <div class="movie-gap">
-
         <div class="movie-title">
           <h2 id="movie-title"></h2>
           <h3 id="movie-release-year"></h3> 
@@ -94,20 +85,18 @@
         <p id="movie-overview"></p>
 
         <div class="movie-director">
-            <h3>Diretor:</h3>
-            <div id="director-info">
-              <img id="director-photo" src="" alt="Foto do Diretor">
-              <div>
-                <p id="director-name"></p>
-                <p id="director-bio"></p>
-                <h4>Outros Filmes:</h4>
-                <ul id="director-movies"></ul>
-              </div>
+          <h3>Diretor:</h3>
+          <div id="director-info">
+            <img id="director-photo" src="" alt="Foto do Diretor">
+            <div>
+              <p id="director-name"></p>
+              <p id="director-bio"></p>
+              <h4>Outros Filmes:</h4>
+              <ul id="director-movies"></ul>
             </div>
           </div>
         </div>
-       
-
+      </div>
     </section>
 
     <div class="elenco">
@@ -119,42 +108,39 @@
       <!-- API TMDB -->
     </div>
 
-    <body>
     <footer>
-        <div class="footer-content">
-          <div class="footer-logo">
-            <i class="icone" data-lucide="clapperboard"></i>
-            <p class="nameLogo">CinemaPontoCom</p>
-          </div>
-          <div class="footer-links">
-            <a href="#">Sobre Nós</a>
-            <a href="#">Contato</a>
-            <a href="#">Termos de Uso</a>
-            <a href="#">Política de Privacidade</a>
-          </div>
-          <div class="footer-social">
-            <a href="#"><i data-lucide="facebook"></i></a>
-            <a href="#"><i data-lucide="twitter"></i></a>
-            <a href="#"><i data-lucide="instagram"></i></a>
-            <a href="#"><i data-lucide="youtube"></i></a>
-          </div>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <i class="icone" data-lucide="clapperboard"></i>
+          <p class="nameLogo">CinemaPontoCom</p>
         </div>
-        <div class="footer-bottom">
-          <p>&copy; 2025 CinemaPontoCom. Todos os direitos reservados.</p>
+        <div class="footer-links">
+          <a href="#">Sobre Nós</a>
+          <a href="#">Contato</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#">Política de Privacidade</a>
         </div>
-      </footer>
-  
-      <script src="https://unpkg.com/lucide@latest"></script>
-      <script>
-        lucide.createIcons();
-      </script>
-      <script src="assets/js/api/RandomUser.js"></script>
-      <script src="assets/js/api/RandomUser.js"></script>
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script src="assets/js/api/RandomUser.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-      <script src="assets/js/api/SlickCarousel.js"></script>
-      <script src="assets/js/api/TMDB.js"></script>
-      <script src="assets/js/pages/movieDetails.js"></script>
-    </body>
-  </html>
+        <div class="footer-social">
+          <a href="#"><i data-lucide="facebook"></i></a>
+          <a href="#"><i data-lucide="twitter"></i></a>
+          <a href="#"><i data-lucide="instagram"></i></a>
+          <a href="#"><i data-lucide="youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 CinemaPontoCom. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="assets/js/api/RandomUser.js"></script>
+    <script src="assets/js/api/SlickCarousel.js"></script>
+    <script src="assets/js/api/TMDB.js"></script>
+    <script src="assets/js/pages/movieDetails.js"></script>
+  </body>
+</html>

@@ -72,6 +72,17 @@ $(document).ready(function () {
         castContainer.append(castElement);
       });
 
+      
+      if (castContainer.hasClass('slick-initialized')) {
+        castContainer.slick('unslick');
+      }
+      castContainer.slick({
+        infinite: false,
+        slidesToShow: 7,
+        slidesToScroll: 1,
+        autoplay: false,
+      });
+
       const director = castData.crew.find((member) => member.job === "Director");
       if (director) {
         $("#director-name").text(director.name);
@@ -102,13 +113,6 @@ $(document).ready(function () {
           <img class="platform-logo" src="https://image.tmdb.org/t/p/w200${platform.logo_path}" alt="${platform.provider_name}">
         `;
         platformsContainer.append(platformElement);
-      });
-
-      $(".cast-carousel").slick({
-        infinite: false,
-        slidesToShow: 7,
-        slidesToScroll: 1,
-        autoplay: false,
       });
     })
     .catch((error) => {

@@ -62,9 +62,11 @@ $(document).ready(function () {
       castData.cast.slice(0, 10).forEach((castMember) => {
         const castElement = `
           <div class="cast-member">
-            <img src="https://image.tmdb.org/t/p/w200${castMember.profile_path}" alt="${castMember.name}">
-            <p>${castMember.name}</p>
-            <p>${castMember.character}</p>
+            <a href="castDetails.html?actorId=${castMember.id}">
+              <img src="https://image.tmdb.org/t/p/w200${castMember.profile_path}" alt="${castMember.name}">
+              <p>${castMember.name}</p>
+              <p>${castMember.character}</p>
+            </a>
           </div>
         `;
         castContainer.append(castElement);
@@ -73,18 +75,17 @@ $(document).ready(function () {
       const director = castData.crew.find((member) => member.job === "Director");
       if (director) {
         $("#director-name").text(director.name);
-      
         fetch(`https://api.themoviedb.org/3/person/${director.id}?api_key=${apiKey}&language=pt-BR`)
-          .then(response => response.json())
-          .then(directorDetails => {
+          .then((response) => response.json())
+          .then((directorDetails) => {
             $("#director-photo").attr("src", `https://image.tmdb.org/t/p/w200${directorDetails.profile_path}`);
             $("#director-bio").text(directorDetails.biography);
 
             fetch(`https://api.themoviedb.org/3/person/${director.id}/movie_credits?api_key=${apiKey}&language=pt-BR`)
-              .then(response => response.json())
-              .then(movieCredits => {
-                const directorMovies = movieCredits.crew.filter(movie => movie.job === "Director").slice(0, 6);
-                directorMovies.forEach(movie => {
+              .then((response) => response.json())
+              .then((movieCredits) => {
+                const directorMovies = movieCredits.crew.filter((movie) => movie.job === "Director").slice(0, 6);
+                directorMovies.forEach((movie) => {
                   $("#director-movies").append(`<li>${movie.title} (${new Date(movie.release_date).getFullYear()})</li>`);
                 });
               });
@@ -103,7 +104,7 @@ $(document).ready(function () {
         platformsContainer.append(platformElement);
       });
 
-      $('.cast-carousel').slick({
+      $(".cast-carousel").slick({
         infinite: false,
         slidesToShow: 7,
         slidesToScroll: 1,

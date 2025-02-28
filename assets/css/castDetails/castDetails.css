@@ -1,0 +1,51 @@
+.actor-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: white;
+    background-color: #161f30;
+    border-radius: 20px;
+    margin: 20px;
+  }
+  
+  .actor-info {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  #actor-photo {
+    border-radius: 10px;
+    width: 150px;
+    height: auto;
+  }
+  
+  #actor-name {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  #actor-bio {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  .actor-movies {
+    width: 100%;
+  }
+  
+  .actor-movies h3 {
+    margin-bottom: 10px;
+  }
+  
+  #actor-movies-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #actor-movies-list li {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
